@@ -1,12 +1,14 @@
 import java.util.ArrayList;
 
 public class Carrinho {
+    private String nome;
     private ArrayList<Produto> pedido;
 
     private float taxaServico;
     private float valorTotal;
 
-    public Carrinho(){
+    public Carrinho(String nome){
+        this.nome=nome;
         pedido = new ArrayList<>();
         this.taxaServico = 1.10f;
         this.valorTotal =0f;
@@ -34,6 +36,7 @@ public class Carrinho {
     public void imprimirRecibo(){
         int i=0;
         System.out.println("------------RECIBO---------------");
+        System.out.println("Cliente:  " + nome);
         for(Produto p:pedido){
             System.out.printf("%d : %15s  %.2f\n",i,p.getNome(),p.getPreco());
             i+=1;
